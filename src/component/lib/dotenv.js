@@ -1,9 +1,10 @@
-// import dotenv from 'dotenv'
-// dotenv.config()
-import {loadEnvFile} from 'node:process';
-
-process.loadEnvFile();
-
+// Load .env file only in local development (not on Vercel — env vars come from dashboard)
+try {
+    // Node 20.6+ built-in — works locally, silently fails on Vercel (no .env file there)
+    process.loadEnvFile();
+} catch(e) {
+    // Ignore — on Vercel env vars are injected directly
+}
 
 export function port(){
     const PORT=process.env.PORT || 8000;

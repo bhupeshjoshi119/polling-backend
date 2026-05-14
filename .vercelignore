@@ -1,0 +1,6 @@
+# Root index.js is for local development only
+# Vercel uses api/index.js as the serverless entry point
+index.js
+docker-compose.yml
+backend.md
+1.txt

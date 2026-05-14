@@ -1,10 +1,11 @@
 import mongoose from 'mongoose';
 
 export async function connectDB() {
-    const uri = process.env.MONGO_URI;
+    // Support both MONGODB_URI (Vercel native) and MONGO_URI (legacy)
+    const uri = process.env.MONGODB_URI || process.env.MONGO_URI;
 
     if (!uri) {
-        throw new Error('MONGO_URI environment variable is not set');
+        throw new Error('MONGODB_URI environment variable is not set');
     }
 
     // Already connected — skip
