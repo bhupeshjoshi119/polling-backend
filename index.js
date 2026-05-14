@@ -1,3 +1,5 @@
+import dotenv from 'dotenv'
+dotenv.config()
 import { createServer } from 'node:http';
 import { Server as SocketServer } from 'socket.io';
 import express from 'express';
